@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Pulse — Age &amp; Sex in America</title>
+  <meta name="description" content="Live dashboards built on US government open data, refreshed daily.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="pulse-dot" aria-hidden="true"></span>Data Pulse</div>
+    <nav class="tabs" aria-label="Dashboards">
+      <a class="tab active" href="#" aria-current="page">Age &amp; Sex</a>
+      <span class="tab soon" title="Coming soon">More soon</span>
+    </nav>
+    <div class="freshness" id="freshness">Loading…</div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">American Community Survey · Table S0101 · <span id="vintage-label">—</span></p>
+        <h1>Who is America, by age &amp; sex?</h1>
+        <p class="lede" id="lede">How old the country is, where it is getting older fastest, and which states don't fit the national pattern.</p>
+      </div>
+      <label class="year-select">Survey year
+        <select id="year"></select>
+      </label>
+    </section>
+
+    <section class="kpis" id="kpis" aria-label="National headline figures"></section>
+
+    <section class="facts" aria-labelledby="facts-h">
+      <h2 id="facts-h">What stands out</h2>
+      <div class="fact-grid" id="facts"></div>
+    </section>
+
+    <section class="explorer" aria-labelledby="map-h">
+      <div class="explorer-head">
+        <h2 id="map-h">State explorer</h2>
+        <label>Color states by
+          <select id="metric"></select>
+        </label>
+      </div>
+      <div class="explorer-body">
+        <div class="map-card card">
+          <div id="map" class="map" role="img" aria-label="Choropleth map of US states"></div>
+          <div id="legend" class="legend"></div>
+        </div>
+        <div class="rank card">
+          <div class="rank-head"><span id="rank-title">Ranking</span><span class="muted">90% margin of error</span></div>
+          <ol id="rank-list" class="rank-list"></ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail card" aria-labelledby="detail-h">
+      <div class="detail-head">
+        <div>
+          <h2 id="detail-h">Population pyramid</h2>
+          <p class="muted" id="detail-sub">Share of total population in each age band. Click a state to compare it with the US.</p>
+        </div>
+        <button id="clear-state" class="ghost" hidden>Show US only</button>
+      </div>
+      <div class="detail-body">
+        <div id="pyramid" class="pyramid"></div>
+        <div id="state-kpis" class="state-kpis"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot wrap">
+    <p>Source: U.S. Census Bureau, American Community Survey 1-Year Estimates, table
+      <a id="source-link" href="https://data.census.gov/table/ACSST1Y2024.S0101" target="_blank" rel="noopener">S0101 Age and Sex</a>.
+      Retrieved through the Census Data API. This product uses the Census Bureau Data API but is not endorsed or certified by the Census Bureau.</p>
+    <p class="muted">ACS figures are survey estimates. Where two values are within each other's margin of error, treat them as statistically tied. A GitHub Action checks for new data every day.</p>
+  </footer>
+
+  <div id="tooltip" class="tooltip" role="tooltip" hidden></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
