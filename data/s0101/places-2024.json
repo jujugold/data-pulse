@@ -1,0 +1,68 @@
+{
+ "acs5_year": 2024,
+ "min_pop": 50000,
+ "oldest": [
+  {
+   "fips": "12119",
+   "lat": 28.828,
+   "lon": -82.028,
+   "name": "Sumter County",
+   "p18": 7.144,
+   "p65": 57.683,
+   "pop": 143408,
+   "state": "Florida"
+  },
+  {
+   "fips": "12015",
+   "lat": 26.949,
+   "lon": -82.107,
+   "name": "Charlotte County",
+   "p18": 11.761,
+   "p65": 40.548,
+   "pop": 201064,
+   "state": "Florida"
+  },
+  {
+   "fips": "12115",
+   "lat": 27.2,
+   "lon": -82.409,
+   "name": "Sarasota County",
+   "p18": 13.997,
+   "p65": 37.507,
+   "pop": 459547,
+   "state": "Florida"
+  }
+ ],
+ "youngest": [
+  {
+   "fips": "48427",
+   "lat": 26.405,
+   "lon": -98.835,
+   "name": "Starr County",
+   "p18": 32.5,
+   "p65": 11.381,
+   "pop": 66067,
+   "state": "Texas"
+  },
+  {
+   "fips": "49049",
+   "lat": 40.276,
+   "lon": -111.758,
+   "name": "Utah County",
+   "p18": 31.612,
+   "p65": 7.894,
+   "pop": 705400,
+   "state": "Utah"
+  },
+  {
+   "fips": "48479",
+   "lat": 27.524,
+   "lon": -99.47,
+   "name": "Webb County",
+   "p18": 31.263,
+   "p65": 10.301,
+   "pop": 269294,
+   "state": "Texas"
+  }
+ ]
+}

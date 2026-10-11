@@ -28,6 +28,11 @@ jobs:
           CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
         run: python scripts/fetch_s0101.py
 
+      - name: Place dots by census tract (rebuilds only when inputs change)
+        env:
+          CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
+        run: python scripts/build_dots.py
+
       - name: Commit refreshed data
         run: |
           git config user.name "github-actions[bot]"
