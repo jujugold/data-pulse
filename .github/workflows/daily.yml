@@ -59,7 +59,7 @@ jobs:
       - name: Assemble site
         run: |
           mkdir -p _site
-          cp -r index.html assets data _site/
+          cp -r *.html assets data _site/
 
       - uses: actions/upload-pages-artifact@v5
         with:

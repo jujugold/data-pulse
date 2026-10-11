@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>America in Dots — Data Pulse</title>
+  <meta name="description" content="Every glowing dot is 1,000 real Americans. Watch 340,000 of them reassemble into the shape of the nation's age and sex.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/universe.css">
+</head>
+<body>
+  <canvas id="gl" aria-label="Animated particle visualization of the US population"></canvas>
+  <div id="labels" class="labels" aria-hidden="true"></div>
+  <div id="beacon" class="beacon" hidden><span class="ring"></span><span class="ring r2"></span><span class="beam"></span><span class="tag">You</span></div>
+
+  <header class="hud-top">
+    <a class="back" href="index.html">← Data Pulse</a>
+    <div class="titleblock">
+      <h1><span id="count">0</span> <span class="muted-h">Americans</span></h1>
+      <p class="sub">Every dot is <strong id="per-dot">1,000</strong> people · ACS <span id="year">2024</span> · <span id="fresh"></span></p>
+    </div>
+    <div class="modes" role="radiogroup" aria-label="Color dots by">
+      <button data-mode="0" class="on" role="radio" aria-checked="true">Age</button>
+      <button data-mode="1" role="radio" aria-checked="false">Sex</button>
+      <button data-mode="2" role="radio" aria-checked="false">State median age</button>
+    </div>
+  </header>
+
+  <aside class="you-panel" id="you-panel">
+    <button class="you-toggle" id="you-toggle" aria-expanded="false">✦ Find yourself</button>
+    <form id="you-form" hidden>
+      <label>Age <input id="you-age" type="number" min="0" max="110" value="34" required></label>
+      <label>Sex
+        <select id="you-sex"><option value="1">Female</option><option value="0">Male</option></select>
+      </label>
+      <label>State <select id="you-state"></select></label>
+      <div class="row"><button type="submit" class="primary">Light me up</button><button type="button" id="you-clear" class="ghost">Clear</button></div>
+      <div id="you-stats" class="you-stats"></div>
+    </form>
+  </aside>
+
+  <footer class="hud-bottom">
+    <div class="legend" id="legend"></div>
+    <p class="caption" id="caption"></p>
+    <nav class="scenes" id="scenes" aria-label="Scenes"></nav>
+    <p class="hint">← → to move between scenes · scroll to zoom · drag to pan · double-click to reset</p>
+  </footer>
+
+  <div id="tip" class="tip" hidden></div>
+  <div id="fallback" class="fallback" hidden>
+    <h2>Your browser can't run this one</h2>
+    <p>This page needs WebGL2. Try a recent Chrome, Safari, Edge or Firefox, or go back to the <a href="index.html">dashboard</a>.</p>
+  </div>
+  <button id="skip" class="skip">Skip intro</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+  <script src="assets/universe.js"></script>
+</body>
+</html>
